@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Criação classes Tarefa e TarefaDTO">
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/db/migration/v1__criar_tabelas_iniciais.sql" afterDir="false" />
+    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Configurando para o uso de migrations">
+      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/repository/TarefaRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/repository/UsuarioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/db/migration/v1__criar_tabelas_iniciais.sql" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/db/migration/V1__criar_tabelas_iniciais.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,10 +20,24 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/dev" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -45,6 +57,9 @@
     &quot;accountId&quot;: &quot;d9a62ae5-4d46-49c8-b7e6-1ba625a61306&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -102,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752355224031</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Configurando para o uso de migrations">
+      <option name="closed" value="true" />
+      <created>1752358946348</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1752358946348</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -112,6 +135,7 @@
     <MESSAGE value="configurações iniciais da aplicação" />
     <MESSAGE value="Criação classes Usuario e UsuarioDTO" />
     <MESSAGE value="Criação classes Tarefa e TarefaDTO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação classes Tarefa e TarefaDTO" />
+    <MESSAGE value="Configurando para o uso de migrations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Configurando para o uso de migrations" />
   </component>
 </project>
