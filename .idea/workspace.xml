@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Criação classes Usuario e UsuarioDTO">
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/dto/TarefaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/enums/EstadoTarefa.java" afterDir="false" />
+    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Criação classes Tarefa e TarefaDTO">
+      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/db/migration/v1__criar_tabelas_iniciais.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752346841870</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Criação classes Tarefa e TarefaDTO">
+      <option name="closed" value="true" />
+      <created>1752355224031</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1752355224031</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -101,6 +111,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="configurações iniciais da aplicação" />
     <MESSAGE value="Criação classes Usuario e UsuarioDTO" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criação classes Usuario e UsuarioDTO" />
+    <MESSAGE value="Criação classes Tarefa e TarefaDTO" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação classes Tarefa e TarefaDTO" />
   </component>
 </project>

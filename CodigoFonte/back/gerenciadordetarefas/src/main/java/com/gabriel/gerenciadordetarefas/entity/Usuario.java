@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -26,6 +28,9 @@ public class Usuario {
     @Column(nullable = false)
     private String senha;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Tarefa> tarefas;
+
     // Construtor padrão (necessário para JPA)
     public Usuario() {
     }
@@ -34,6 +39,7 @@ public class Usuario {
         this.email = dto.getEmail();
         this.nome = dto.getNome();
         this.senha = dto.getSenha();
+        this.tarefas = new ArrayList<>();
     }
 
     public static Usuario fromDTO(UsuarioDTO dto) {
@@ -54,6 +60,14 @@ public class Usuario {
 
     public UUID getIdUsuario() {
         return idUsuario;
+    }
+
+    public List<Tarefa> getListaTarefas(){
+        return tarefas;
+    }
+
+    public void setListaTarefas(List<Tarefa> tarefas){
+        this.tarefas = tarefas;
     }
 
     public void setNome(String nome){

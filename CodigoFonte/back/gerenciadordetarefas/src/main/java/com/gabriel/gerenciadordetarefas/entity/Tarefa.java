@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -25,17 +27,22 @@ public class Tarefa {
     @Column(nullable = false)
     private EstadoTarefa estado;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
+
     public Tarefa(){
     }
 
-    public Tarefa(TarefaDTO dto){
+    public Tarefa(TarefaDTO dto, Usuario usuario){
         this.estado = dto.getEstado();
         this.nome = dto.getNome();
         this.descricao = dto.getDescricao();
+        this.usuario = usuario;
     }
 
-    public static Tarefa fromDTO(TarefaDTO dto){
-        return new Tarefa(dto);
+    public static Tarefa fromDTO(TarefaDTO dto, Usuario usuario){
+        return new Tarefa(dto, usuario);
     }
 
     public UUID getIdTarefa(){

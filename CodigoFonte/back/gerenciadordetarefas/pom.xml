@@ -79,6 +79,10 @@
 			<version>1.18.30</version> <!-- versão atual (pode mudar com o tempo) -->
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
