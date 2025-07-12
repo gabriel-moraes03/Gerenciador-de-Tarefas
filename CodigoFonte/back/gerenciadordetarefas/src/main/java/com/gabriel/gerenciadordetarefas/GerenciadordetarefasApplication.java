@@ -8,12 +8,20 @@ import io.github.cdimascio.dotenv.Dotenv;
 @SpringBootApplication
 public class GerenciadordetarefasApplication {
 	public static void main(String[] args) {
-		Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+		Dotenv dotenv = Dotenv.configure().directory("H:/Gabriel/Projetos/Gerenciador de Tarefas/CodigoFonte/back/gerenciadordetarefas").ignoreIfMissing().load();
 
-		// Define como variáveis de sistema
-		System.setProperty("DB_URL", dotenv.get("DB_URL"));
-		System.setProperty("DB_USER", dotenv.get("DB_USER"));
-		System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD"));
+		String dbUrl = dotenv.get("DB_URL");
+		String dbUser = dotenv.get("DB_USER");
+		String dbPassword = dotenv.get("DB_PASSWORD");
+
+		if (dbUrl == null || dbUser == null || dbPassword == null) {
+			System.err.println("Erro: Variáveis de ambiente DB_URL, DB_USER ou DB_PASSWORD não encontradas no arquivo .env");
+			System.exit(1);
+		}
+
+		System.setProperty("DB_URL", dbUrl);
+		System.setProperty("DB_USER", dbUser);
+		System.setProperty("DB_PASSWORD", dbPassword);
 
 		SpringApplication.run(GerenciadordetarefasApplication.class, args);
 	}
