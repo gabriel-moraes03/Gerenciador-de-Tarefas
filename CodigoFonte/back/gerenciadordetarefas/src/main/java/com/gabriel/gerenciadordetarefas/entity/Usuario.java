@@ -1,6 +1,7 @@
 package com.gabriel.gerenciadordetarefas.entity;
 
 import com.gabriel.gerenciadordetarefas.dto.UsuarioDTO;
+import com.gabriel.gerenciadordetarefas.dto.UsuarioRespostaDTO;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Setter;
@@ -44,6 +45,10 @@ public class Usuario {
 
     public static Usuario fromDTO(UsuarioDTO dto) {
         return new Usuario(dto);
+    }
+
+    public UsuarioRespostaDTO toRespostaDTO() {
+        return new UsuarioRespostaDTO(this.idUsuario, this.nome, this.email);
     }
 
     public String getEmail(){
