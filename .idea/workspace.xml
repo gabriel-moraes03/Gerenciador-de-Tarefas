@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Criando UsuarioRepository e TarefaRepository">
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/dto/UsuarioRespostaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/UsuarioService.java" afterDir="false" />
+    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Iniciando criação UsuarioService e modificações necessárias">
+      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/dto/LoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/TarefaService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/repository/TarefaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/repository/TarefaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/UsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752361426687</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Iniciando criação UsuarioService e modificações necessárias">
+      <option name="closed" value="true" />
+      <created>1752379906508</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1752379906508</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -145,6 +156,7 @@
     <MESSAGE value="Criação classes Tarefa e TarefaDTO" />
     <MESSAGE value="Configurando para o uso de migrations" />
     <MESSAGE value="Criando UsuarioRepository e TarefaRepository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando UsuarioRepository e TarefaRepository" />
+    <MESSAGE value="Iniciando criação UsuarioService e modificações necessárias" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iniciando criação UsuarioService e modificações necessárias" />
   </component>
 </project>
