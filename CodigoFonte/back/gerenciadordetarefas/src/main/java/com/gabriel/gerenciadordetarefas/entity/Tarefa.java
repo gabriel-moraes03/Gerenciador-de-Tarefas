@@ -46,7 +46,7 @@ public class Tarefa {
     }
 
     public TarefaDTO toDTO() {
-        return new TarefaDTO(this.getNome(), this.getDescricao(), this.getEstado());
+        return new TarefaDTO(this.getIdTarefa(), this.getNome(), this.getDescricao(), this.getEstado());
     }
 
     public UUID getIdTarefa(){

@@ -1,8 +1,6 @@
 package com.gabriel.gerenciadordetarefas.service;
 
 import com.gabriel.gerenciadordetarefas.dto.TarefaDTO;
-import com.gabriel.gerenciadordetarefas.dto.UsuarioDTO;
-import com.gabriel.gerenciadordetarefas.dto.UsuarioRespostaDTO;
 import com.gabriel.gerenciadordetarefas.entity.Tarefa;
 import com.gabriel.gerenciadordetarefas.entity.Usuario;
 import com.gabriel.gerenciadordetarefas.enums.EstadoTarefa;
@@ -51,15 +49,20 @@ public class TarefaService {
         return atualizada.toDTO();
     }
 
-    public void criarTarefaParaUsuario(UUID idUsuario, TarefaDTO dto) {
+    public TarefaDTO criarTarefaParaUsuario(UUID idUsuario, TarefaDTO dto) {
         Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         Tarefa tarefa = new Tarefa(dto, usuario);
         tarefaRepository.save(tarefa);
+
+        return tarefa.toDTO();
     }
 
-    public List<Tarefa> listarTarefasUsuario(UUID idUsuario){
-        return tarefaRepository.findByUsuarioId(idUsuario);
+    public List<TarefaDTO> listarTarefasUsuario(UUID idUsuario){
+        return tarefaRepository.findByUsuarioId(idUsuario)
+                .stream()
+                .map(Tarefa::toDTO)
+                .toList();
     }
 
     public List<TarefaDTO> listarTarefasPorEstado(UUID idUsuario, EstadoTarefa estado) {

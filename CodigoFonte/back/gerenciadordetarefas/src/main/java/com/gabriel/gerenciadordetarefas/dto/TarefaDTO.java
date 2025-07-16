@@ -3,7 +3,11 @@ package com.gabriel.gerenciadordetarefas.dto;
 import com.gabriel.gerenciadordetarefas.enums.EstadoTarefa;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.UUID;
+
 public class TarefaDTO {
+    private UUID id;
+
     @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
@@ -13,11 +17,14 @@ public class TarefaDTO {
 
     public TarefaDTO(){}
 
-    public TarefaDTO(String nome, String descricao, EstadoTarefa estado){
+    public TarefaDTO(UUID id, String nome, String descricao, EstadoTarefa estado){
+        this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.estado = estado;
     }
+
+    public UUID getId(){ return this.id; }
 
     public String getNome(){
         return this.nome;

@@ -1,18 +1,17 @@
 package com.gabriel.gerenciadordetarefas.service;
 
 import com.gabriel.gerenciadordetarefas.dto.LoginDTO;
-import com.gabriel.gerenciadordetarefas.dto.TarefaDTO;
 import com.gabriel.gerenciadordetarefas.dto.UsuarioDTO;
 import com.gabriel.gerenciadordetarefas.dto.UsuarioRespostaDTO;
-import com.gabriel.gerenciadordetarefas.entity.Tarefa;
 import com.gabriel.gerenciadordetarefas.entity.Usuario;
 import com.gabriel.gerenciadordetarefas.repository.TarefaRepository;
 import com.gabriel.gerenciadordetarefas.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -28,8 +27,14 @@ public class UsuarioService {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public Optional<Usuario> buscarPorId(UUID id){
+    public Optional<Usuario> buscarPorIdInterno(UUID id){
         return usuarioRepository.findById(id);
+    }
+
+    public UsuarioRespostaDTO buscarPorId(UUID id){
+        Usuario usuario =  usuarioRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
+
+        return usuario.toRespostaDTO();
     }
 
     public Optional<Usuario> buscarPorEmail(String email){
@@ -46,10 +51,10 @@ public class UsuarioService {
     }
 
     public UsuarioRespostaDTO login(LoginDTO dto) {
-        Usuario usuario = buscarPorEmail(dto.getEmail()).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        Usuario usuario = buscarPorEmail(dto.getEmail()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
         if(!conferirSenha(usuario.getSenha(), dto.getSenha())){
-            throw new RuntimeException("Senha inválida");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED , "Senha incorreta");
         }
 
         return usuario.toRespostaDTO();
@@ -60,18 +65,18 @@ public class UsuarioService {
     }
 
     public void deletarUsuario(UUID id){
-        Usuario usuario = buscarPorId(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        Usuario usuario = buscarPorIdInterno(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
         usuarioRepository.delete(usuario);
     }
 
     public UsuarioRespostaDTO atualizarUsuario(UUID id, UsuarioDTO dto) {
-        Usuario usuario = buscarPorId(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        Usuario usuario = buscarPorIdInterno(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
         if(!usuario.getEmail().equals(dto.getEmail())){
             Optional<Usuario> existente = buscarPorEmail(dto.getEmail());
-            if(existente.isPresent() && existente.get().getIdUsuario().equals(id)){
-                throw new RuntimeException("E-mail já cadastrado");
+            if(existente.isPresent() && !existente.get().getIdUsuario().equals(id)){
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email já cadastrado");
             }
             usuario.setEmail(dto.getEmail());
         }
@@ -81,11 +86,11 @@ public class UsuarioService {
     }
 
     public void atualizarSenha(UUID id, String senhaAtual, String novaSenha) {
-        Usuario usuario = buscarPorId(id)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        Usuario usuario = buscarPorIdInterno(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
         if (!bCryptPasswordEncoder.matches(senhaAtual, usuario.getSenha())) {
-            throw new RuntimeException("Senha atual incorreta");
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED , "Senha incorreta");
         }
 
         String senhaCriptografada = bCryptPasswordEncoder.encode(novaSenha);
