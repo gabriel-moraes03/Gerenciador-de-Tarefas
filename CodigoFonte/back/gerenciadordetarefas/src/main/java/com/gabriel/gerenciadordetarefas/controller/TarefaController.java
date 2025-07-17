@@ -22,13 +22,12 @@ public class TarefaController {
     }
 
     @GetMapping("/tarefasUsuario/{idUsuario}")
-    private ResponseEntity<List<TarefaDTO>> listarTarefasUsuario(@PathVariable UUID idUsuario){
-        return ResponseEntity.ok().body(tarefaService.listarTarefasUsuario(idUsuario));
-    }
-
-    @GetMapping("/tarefasUsuario/{idUsuario}/{estado}")
-    private ResponseEntity<List<TarefaDTO>> listarTarefasUsuarioPorEstado(@PathVariable UUID idUsuario, @PathVariable EstadoTarefa estado){
-        return ResponseEntity.ok().body(tarefaService.listarTarefasPorEstado(idUsuario, estado));
+    private ResponseEntity<List<TarefaDTO>> listarTarefasUsuario(@PathVariable UUID idUsuario, @RequestParam(required = false) EstadoTarefa estado) {
+        if (estado != null) {
+            return ResponseEntity.ok().body(tarefaService.listarTarefasPorEstado(idUsuario, estado));
+        } else {
+            return ResponseEntity.ok().body(tarefaService.listarTarefasUsuario(idUsuario));
+        }
     }
 
     @PostMapping("/criar/{idUsuario}")

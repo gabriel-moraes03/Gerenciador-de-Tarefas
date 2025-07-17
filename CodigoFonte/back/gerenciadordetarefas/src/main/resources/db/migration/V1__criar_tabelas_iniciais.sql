@@ -10,5 +10,5 @@ CREATE TABLE tarefa (
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     estado VARCHAR(50) NOT NULL,
-    usuario_id UUID REFERENCES usuario(id_usuario) ON DELETE CASCADE
+    id_usuario UUID REFERENCES usuario(id_usuario) ON DELETE CASCADE
 );

@@ -59,14 +59,20 @@ public class TarefaService {
     }
 
     public List<TarefaDTO> listarTarefasUsuario(UUID idUsuario){
-        return tarefaRepository.findByUsuarioId(idUsuario)
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        return tarefaRepository.findByUsuario(usuario)
                 .stream()
                 .map(Tarefa::toDTO)
                 .toList();
     }
 
     public List<TarefaDTO> listarTarefasPorEstado(UUID idUsuario, EstadoTarefa estado) {
-        return tarefaRepository.findByUsuarioIdAndEstado(idUsuario, estado)
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
+        return tarefaRepository.findByUsuarioAndEstado(usuario, estado)
                 .stream()
                 .map(Tarefa::toDTO)
                 .toList();

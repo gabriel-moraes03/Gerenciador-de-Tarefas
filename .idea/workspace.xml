@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Finalizando UsuarioService e TarefaService">
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/controller/TarefaController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/controller/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/dto/RecuperarSenhaDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="Finalizando UsuarioController e TarefaController">
+      <change afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/config/SecurityConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/dto/TarefaDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/dto/TarefaDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/controller/TarefaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/controller/TarefaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/entity/Tarefa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/repository/TarefaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/repository/TarefaRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/TarefaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/TarefaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CodigoFonte/back/gerenciadordetarefas/src/main/java/com/gabriel/gerenciadordetarefas/service/UsuarioService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,20 +76,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.GerenciadordetarefasApplication.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;last_opened_file_path&quot;: &quot;H:/Gabriel/Projetos/Gerenciador de Tarefas&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.GerenciadordetarefasApplication.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "dev",
+    "last_opened_file_path": "H:/Gabriel/Projetos/Gerenciador de Tarefas",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0d66d40a-96db-4d0a-b19d-dea0b20efb53" name="Changes" comment="" />
@@ -156,7 +155,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752551913270</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Finalizando UsuarioController e TarefaController">
+      <option name="closed" value="true" />
+      <created>1752689585680</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1752689585680</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -170,6 +177,7 @@
     <MESSAGE value="Criando UsuarioRepository e TarefaRepository" />
     <MESSAGE value="Iniciando criação UsuarioService e modificações necessárias" />
     <MESSAGE value="Finalizando UsuarioService e TarefaService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizando UsuarioService e TarefaService" />
+    <MESSAGE value="Finalizando UsuarioController e TarefaController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizando UsuarioController e TarefaController" />
   </component>
 </project>
