@@ -42,8 +42,11 @@ public class UsuarioService {
     }
 
     public UsuarioRespostaDTO cadastrar(UsuarioDTO dto){
+        if(buscarPorEmail(dto.getEmail()).isPresent()){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Email já cadastrado");
+        }
         String senhaCriptografada = bCryptPasswordEncoder.encode(dto.getSenha());
-        Usuario usuario = Usuario.fromDTO(dto);
+        Usuario usuario = new Usuario(dto);
         usuario.setSenha(senhaCriptografada);
         Usuario salvo = usuarioRepository.save(usuario);
 

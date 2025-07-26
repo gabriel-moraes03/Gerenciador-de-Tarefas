@@ -8,6 +8,8 @@ import com.gabriel.gerenciadordetarefas.repository.TarefaRepository;
 import com.gabriel.gerenciadordetarefas.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +25,7 @@ public class TarefaService {
     private UsuarioRepository usuarioRepository;
 
     public TarefaDTO buscarPorId (UUID id){
-        Tarefa tarefa =  tarefaRepository.findById(id).orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+        Tarefa tarefa =  tarefaRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tarefa não encontrada"));
 
         return tarefa.toDTO();
     }
@@ -33,14 +35,13 @@ public class TarefaService {
     }
 
     public void deletarTarefa(UUID id) {
-        Tarefa tarefa = buscarPorIdInterno(id).orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+        Tarefa tarefa = buscarPorIdInterno(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tarefa não encontrada"));
 
         tarefaRepository.delete(tarefa);
     }
 
     public TarefaDTO atualizarTarefa(UUID id, TarefaDTO dto) {
-        Tarefa tarefa = buscarPorIdInterno(id).orElseThrow(() -> new RuntimeException(("Tarefa não encontrada")));
-
+        Tarefa tarefa = buscarPorIdInterno(id) .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tarefa não encontrada"));
         tarefa.setDescricao(dto.getDescricao());
         tarefa.setEstado(dto.getEstado());
         tarefa.setNome(dto.getNome());
@@ -51,7 +52,7 @@ public class TarefaService {
 
     public TarefaDTO criarTarefaParaUsuario(UUID idUsuario, TarefaDTO dto) {
         Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
         Tarefa tarefa = new Tarefa(dto, usuario);
         tarefaRepository.save(tarefa);
 
@@ -60,7 +61,7 @@ public class TarefaService {
 
     public List<TarefaDTO> listarTarefasUsuario(UUID idUsuario){
         Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
         return tarefaRepository.findByUsuario(usuario)
                 .stream()
@@ -70,7 +71,7 @@ public class TarefaService {
 
     public List<TarefaDTO> listarTarefasPorEstado(UUID idUsuario, EstadoTarefa estado) {
         Usuario usuario = usuarioRepository.findById(idUsuario)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuário não encontrado"));
 
         return tarefaRepository.findByUsuarioAndEstado(usuario, estado)
                 .stream()
