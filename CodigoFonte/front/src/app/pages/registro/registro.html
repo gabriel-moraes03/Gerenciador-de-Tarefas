@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="registro-container">
+        <h1 class="titulo">Registre-se</h1>
+
+        <p class="frase">Crie sua conta e mantenha suas tarefas sob controle.</p>
+
+        <form (submit)="registrar()">
+            <div class="input-container">
+                <label for="nome">Nome:</label>
+                <input id="nome" type="text"/>    
+            </div>
+
+            <div class="input-container">
+                <label for="email">E-mail:</label>
+                <input id="email" type="email"/>    
+            </div>
+
+            <div class="input-container">
+                <label for="senha">Senha:</label>
+                <input id="senha" type="password"/>      
+            </div>
+
+            <div class="input-container">
+                <label for="senha">Confirmar Senha:</label>
+                <input id="senha" type="password"/>      
+            </div>
+
+            <button type="submit">Registrar</button>
+        </form>    
+
+        <p class="link">Já tem uma conta? <a [routerLink]="'/login'">Clique aqui</a> para fazer login</p>
+    </div>    
+</div>

@@ -1,0 +1,28 @@
+<div class="container">
+    <header>
+        <a class="title" [routerLink]="'/home'">Gerenciador de Tarefas</a>
+        <a [routerLink]="'/meu-perfil'" class="botao-sair">Voltar</a>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <h1>Alterar Senha</h1>
+            <form class="perfil-info">
+                <div class="input-container">
+                    <label for="senha">Nova Senha:</label>
+                    <input id="senha" type="password" />
+                </div>
+
+                <div class="input-container">
+                    <label for="repetir-senha">Repetir Senha:</label>
+                    <input id="repetir-senha" type="password" />
+                </div>
+
+                <div class="botoes-container">
+                    <button class="botao-salvar">Atualizar Senha</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    <header>
+        <a class="title" [routerLink]="'/home'">Gerenciador de Tarefas</a>
+        <a [routerLink]="'/login'" class="botao-sair">Sair</a>
+    </header>
+
+    <div class="main-container">
+        <main>
+            <h1>Suas Informações</h1>
+            <form class="perfil-info">
+                <div class="input-container">
+                    <label for="nome">Nome:</label>
+                    <input id="nome" type="text" />
+                </div>
+
+                <div class="input-container">
+                    <label for="email">E-mail:</label>
+                    <input id="email" type="email" />
+                </div>
+
+                <div class="botoes-container" [style.justifyContent]="taEditando ? 'end' : 'space-between'">
+                    @if(!taEditando){
+                        <a class="botao-editar" [routerLink]="'/alterar-senha'">Alterar Senha</a>
+                        <button (click)="alteraEditar()" type="button" class="botao-editar">Editar</button>
+                    }@else{
+                        <button (click)="alteraEditar()" type="button" class="botao-cancelar">Cancelar</button>
+                        <button (click)="alteraEditar()" class="botao-salvar">Salvar</button>
+                    }
+                </div>
+            </form>
+        </main>
+    </div>
+
+</div>

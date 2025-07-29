@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="login-container">
+        <h1 class="titulo">Login</h1>
+
+        <p class="frase">Acesse sua conta e mantenha suas tarefas sob controle.</p>
+
+        <form (submit)="logar()">
+            <div class="input-container">
+                <label for="email">E-mail:</label>
+                <input id="email" type="email"/>    
+            </div>
+
+
+            <div class="input-container">
+                <label for="senha">Senha:</label>
+                <input id="senha" type="password"/>      
+            </div>
+
+            <button type="submit">Entrar</button>
+        </form>    
+
+        <p class="link">Não tem uma conta? <a [routerLink]="'/registro'">Clique aqui</a> para se registrar</p>
+    </div>    
+</div>

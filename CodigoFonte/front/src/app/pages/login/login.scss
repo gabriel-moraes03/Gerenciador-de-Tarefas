@@ -1,0 +1,101 @@
+@use '../../../variables' as *;
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: $cor-secundaria;
+    font-family: $fonte-principal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .login-container {
+        width: 25rem;
+        height: 28rem;
+        background-color: $cinza-claro-transparente;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-transform: uppercase;
+        font-size: 2.5rem;
+    }
+
+    .frase {
+        font-size: 1.2rem;
+        width: 90%;
+        text-align: center;
+    }
+
+    form {
+        height: 10rem;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            margin-bottom: .25rem;
+        }
+
+        input {
+            padding: .5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: border 0.2s ease, box-shadow 0.2s ease;
+            font-family: $fonte-principal;
+            color: $cor-texto-principal;
+            border: 2px solid transparent;
+
+            &::placeholder {
+                color: $cor-texto-secundario;
+            }
+
+            &:focus {
+                outline: none;
+                border: 2px solid $cor-primaria;
+                box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); // cor-primaria com transparência
+            }
+        }
+
+        button {
+            padding: .7rem 2rem .5rem;
+            border-radius: 10px;
+            border: 2px solid $cor-primaria;
+            background-color: rgba(79, 70, 229, 0.2);
+            font-family: $fonte-principal;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            color: $cor-texto-principal ;
+            font-weight: 700;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        button:hover {
+            background-color: rgba(79, 70, 229, .7);
+            color: #ffffff;
+        }
+
+        .link {
+            text-align: justify;
+        }
+    }
+
+
+}
